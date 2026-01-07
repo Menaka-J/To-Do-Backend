@@ -130,3 +130,11 @@ app.listen(PORT, () => {
 // app.get("/todos", (req, res) => {
 //     res.json(todolist);
 // });
+
+
+//=======================================================================
+// 1) create express
+// 2) do cors
+// 3) see express working using app.get("/")
+// 4) do crud operations
+// 5) connect server 
