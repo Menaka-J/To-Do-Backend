@@ -1,7 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const PORT = 8000;
+require("dotenv").config();
+
+const PORT = process.env.PORT || 8000;
 const app = express();
 
 app.use(cors());
@@ -24,17 +26,15 @@ app.get("/", (req, res) => {
 //     })
 
 
-//===========================================
-//connecting mongodb atlas
-mongoose.connect(
-  "mongodb+srv://menakaraman4_db_user:yqJ6EjBcBN8wSU15@mern-todo-cluster.yehu4mp.mongodb.net/?appName=mern-todo-cluster"
-)
+// =======================
+// MongoDB Atlas connection
+mongoose.connect(process.env.MONGO_URI)
 .then(() => {
-    console.log("MongoDB Atlas connected")
+    console.log("MongoDB Atlas connected");
 })
 .catch((err) => {
-    console.log(err)
-})
+    console.error("MongoDB connection error:", err);
+});
 
 
 //creating schema
