@@ -15,13 +15,28 @@ app.get("/", (req, res) => {
 // let todolist = [];
 
 //connecting mongodb
-mongoose.connect('mongodb://localhost:27017/mern-app')
-    .then(() => {
-        console.log("MongoDB connected")
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+// mongoose.connect('mongodb://localhost:27017/mern-app')
+//     .then(() => {
+//         console.log("MongoDB connected")
+//     })
+//     .catch((err) => {
+//         console.log(err)
+//     })
+
+
+//===========================================
+//connecting mongodb atlas
+mongoose.connect(
+  "mongodb+srv://menakaraman4_db_user:yqJ6EjBcBN8wSU15@mern-todo-cluster.yehu4mp.mongodb.net/?appName=mern-todo-cluster"
+)
+.then(() => {
+    console.log("MongoDB Atlas connected")
+})
+.catch((err) => {
+    console.log(err)
+})
+
+
 //creating schema
 const todoschema = new mongoose.Schema({
     title: {
